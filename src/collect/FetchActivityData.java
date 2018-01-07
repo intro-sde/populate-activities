@@ -3,9 +3,6 @@ package collect;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -64,10 +61,10 @@ public class FetchActivityData {
 		 }
 	     System.out.println(results.length());
 	     //"assetName", "place", "activityStartDate", "activityEndDate", "assetTopics", "assetTags"
-	     FileWriter writer = new FileWriter("activity2.csv");
+	     FileWriter writer = new FileWriter("activity.csv");
 	     
 	     for (int i=0;i<numberOfResults;i++) {
-	    	 writer.append(String.format("item-%s", i+1));
+	    	 writer.append(String.valueOf(i+1));
 	    	 writer.append(',');
 	    	 writer.append(results.getJSONObject(i).getString("assetName"));
 	    	 //System.out.println(results.getJSONObject(i).getString("assetName"));

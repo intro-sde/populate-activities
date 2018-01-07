@@ -14,3 +14,8 @@ Saving to "activity.csv" and after manually correcting some data errors populati
 - topic (string)
 - from (string)
 - to (string)
+
+Reference:
+- Recombee API (version 1.6.0), Available at: https://docs.recombee.com/api.html.
+- ACtivitySearch v2 API, Available at: http://developer.active.com/docs/read/v2_Activity_API_Search.
+

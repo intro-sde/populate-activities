@@ -12,8 +12,6 @@ import java.util.Map;
 
 import com.recombee.api_client.RecombeeClient;
 import com.recombee.api_client.api_requests.AddItemProperty;
-import com.recombee.api_client.api_requests.AddPurchase;
-import com.recombee.api_client.api_requests.Batch;
 import com.recombee.api_client.api_requests.Request;
 import com.recombee.api_client.api_requests.ResetDatabase;
 import com.recombee.api_client.api_requests.SetItemValues;
@@ -29,7 +27,7 @@ public class UploadActivityData {
 	
 	public static void upload() throws ApiException {
 		String line = "";
-		client.send(new ResetDatabase());
+		//client.send(new ResetDatabase());
 		client.send(new AddItemProperty("type", "string"));
 		client.send(new AddItemProperty("name", "string"));
 		client.send(new AddItemProperty("city", "string"));
@@ -40,7 +38,7 @@ public class UploadActivityData {
 		try (BufferedReader br = new BufferedReader(new FileReader("activity.csv"))) {
 
 		    while ((line = br.readLine()) != null) {
-		    	System.out.println(line);
+		    	//System.out.println(line);
 		        String[] row = line.split(",");
 		        String id = row[0];
 		        String type = "activity";
