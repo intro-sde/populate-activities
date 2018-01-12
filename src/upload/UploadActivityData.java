@@ -34,6 +34,8 @@ public class UploadActivityData {
 		client.send(new AddItemProperty("topic", "string"));
 		client.send(new AddItemProperty("from", "string"));
 		client.send(new AddItemProperty("to", "string"));
+		client.send(new AddItemProperty("address","string"));
+		client.send(new AddItemProperty("rating","string"));
 		
 		try (BufferedReader br = new BufferedReader(new FileReader("activity.csv"))) {
 
@@ -54,6 +56,29 @@ public class UploadActivityData {
 		        itemValues.put("topic", topic);
 		        itemValues.put("from", from);
 		        itemValues.put("to", to);
+		        Request r = new SetItemValues(id, itemValues).setCascadeCreate(true);
+		        //itemRequests.add(r);
+		        client.send(r);
+		    }
+		try (BufferedReader br = new BufferedReader(new FileReader("restaurants.csv"))) {
+
+		    while ((line = br.readLine()) != null) {
+		    	//System.out.println(line);
+		        String[] row = line.split(";");
+		        String id = row[0];
+		        String type = row[1];
+		        String name = row[2];
+		        String city = row[4];
+		        String topic = row[5];
+		        String address = row[3];
+		        String rating = row[6];
+		        
+		        itemValues.put("type",type);
+		        itemValues.put("name",name);
+		        itemValues.put("city", city);
+		        itemValues.put("topic", topic);
+		        itemValues.put("address", address);
+		        itemValues.put("rating", rating);
 		        Request r = new SetItemValues(id, itemValues).setCascadeCreate(true);
 		        //itemRequests.add(r);
 		        client.send(r);
